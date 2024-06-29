@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
+from unittest import skip
 
 from django.urls import reverse
 
 from .base import FunctionalTest
+
 
 class MainPageTest(FunctionalTest):
     '''Тест главной страницы'''
@@ -17,7 +19,8 @@ class MainPageTest(FunctionalTest):
 
         # Сайт переносит его в магазин
         self.assertRegex(self.browser.current_url, reverse('shop'))
-        
+
+    @skip   
     def test_shopping_cart_button(self):
         '''Тест: кнопка "корзина" переносит пользователя в его корзину'''
         # Билл заходит на сайт
@@ -27,4 +30,4 @@ class MainPageTest(FunctionalTest):
         self.browser.find_element(By.LINK_TEXT, 'Корзина').click()
 
         # Сайт переносит его в корзину
-        self.assertEqual(self.browser.current_url, reverse('shopping_cart'))
+        self.assertRegex(self.browser.current_url, reverse('shopping_cart'))

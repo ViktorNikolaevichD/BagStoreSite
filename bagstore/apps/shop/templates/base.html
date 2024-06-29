@@ -3,33 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <title>Bag Store</title>
-    {% block link %}
-        <link href="static/shop/styles/main.css" rel="stylesheet">
-    {% endblock link %}
+    <link href="static/shop/styles/main.css" rel="stylesheet"> 
 </head>
-<body>
+<body>  
     <div class="center">
         <header>
-            {% block header %}
-                <div class="logo">
-                    <a href="#"><span>Bag Store</span></a>
-                </div>
-                <div class="first_menu site_menu">
-                    <a href="{% url 'shop' %}"><span>Магазин</span></a>
-                </div>
-                <div class="site_menu">
-                    <a href="#"><span>Корзина</span></a>
-                </div>
-            {% endblock header %}
+            <a href="#" class="button_menu_style" id="logo">BagStore</a>
+            <nav class="nav_menu">
+                <a href="{% url 'shop' %}" class="button_menu_style button_menu_hover">Магазин</a>
+                <a href="#" class="button_menu_style button_menu_hover">Корзина</a>
+            </nav>  
         </header>
+
         <main>
-            {% block main %}
-            {% endblock main %}
+            <section class="first_page">
+                <div class="wallpaper">
+                    <img src="static/shop/images/woman.png" class="main_img">
+                </div>
+                <div class="main_text">
+                    <span class="text_in">Сумки, которые делают твой день лучше</span>
+                </div>
+            </section>
         </main>
+
         <footer>
-            {% block footer %}
-            {% endblock footer %}
+
         </footer>
-    </div>
+         
+    </div>  
 </body>
 </html>

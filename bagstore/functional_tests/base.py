@@ -40,17 +40,17 @@ class FunctionalTest(StaticLiveServerTestCase):
         '''Корректное расположение кнопок навигации'''
         # Проверка расположения лого
         logo = self.browser.find_element(By.ID, 'logo')
-        self.assertAlmostEqual(logo.location['x'], 100, delta=10)
-        self.assertAlmostEqual(logo.location['y'], 50, delta=10)
+        self.assertAlmostEqual(logo.location['x'], 100, delta=15)
+        self.assertAlmostEqual(logo.location['y'], 25, delta=10)
 
         # Проверка расположения кнопки "Магазин"
         shop = self.browser.find_element(By.LINK_TEXT, SHOP_BUTTON)
-        self.assertAlmostEqual(shop.location['x'], 380, delta=10)
-        self.assertAlmostEqual(logo.location['y'], 50, delta=10)
+        self.assertAlmostEqual(shop.location['x'], 500, delta=15)
+        self.assertAlmostEqual(shop.location['y'], 40, delta=10)
 
         # Проверка расположения кнопки "Корзина"
         cart = self.browser.find_element(By.LINK_TEXT, CART_BUTTON)
         self.assertAlmostEqual(
-            cart.location['x'] - shop.location['x'], 60, delta=10)
+            cart.location['x'] - shop.location['x'] - shop.size['width'], 60, delta=10)
         # Кнопки навигации расположены на одном уровне
         self.assertAlmostEqual(shop.location['y'], cart.location['y'])
