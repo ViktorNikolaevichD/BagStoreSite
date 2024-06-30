@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+{% block link %}
+        <link href="{% static '/shop/styles/header.css' %}" rel="stylesheet"> 
+        <link href="{% static '/shop/styles/main.css' %}" rel="stylesheet">
+    {% endblock link %}
 {% block main %}
     <main>
         <section class="first_page">

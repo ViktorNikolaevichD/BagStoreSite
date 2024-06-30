@@ -4,8 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <title>Bag Store</title>
-    <link href="{% static '/shop/styles/header.css' %}" rel="stylesheet"> 
-    <link href="{% static '/shop/styles/main.css' %}" rel="stylesheet">
+    {% block base_link %}
+        <link href="{% static '/shop/styles/base.css' %}" rel="stylesheet"> 
+    {% endblock base_link %}
+    {% block link %}
+        <link href="{% static '/shop/styles/header.css' %}" rel="stylesheet"> 
+    {% endblock link %}
 </head>
 <body>  
     <div class="center">
