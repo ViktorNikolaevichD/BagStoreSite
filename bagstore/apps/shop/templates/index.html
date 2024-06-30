@@ -1,1 +1,14 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+    <main>
+        <section class="first_page">
+            <div class="wallpaper">
+                <img src="{% static '/shop/images/woman.png' %}" class="main_img">
+            </div>
+            <div class="main_text">
+                <span class="text_in">Сумки, которые делают твой день лучше</span>
+            </div>
+        </section>
+    </main>
+{% endblock main %}

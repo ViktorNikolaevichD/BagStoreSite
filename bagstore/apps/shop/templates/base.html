@@ -1,35 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Bag Store</title>
-    <link href="static/shop/styles/main.css" rel="stylesheet"> 
+    <link href="{% static '/shop/styles/header.css' %}" rel="stylesheet"> 
+    <link href="{% static '/shop/styles/main.css' %}" rel="stylesheet">
 </head>
 <body>  
     <div class="center">
-        <header>
-            <a href="#" class="button_menu_style" id="logo">BagStore</a>
-            <nav class="nav_menu">
-                <a href="{% url 'shop' %}" class="button_menu_style button_menu_hover">Магазин</a>
-                <a href="#" class="button_menu_style button_menu_hover">Корзина</a>
-            </nav>  
-        </header>
-
-        <main>
-            <section class="first_page">
-                <div class="wallpaper">
-                    <img src="static/shop/images/woman.png" class="main_img">
-                </div>
-                <div class="main_text">
-                    <span class="text_in">Сумки, которые делают твой день лучше</span>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-
-        </footer>
-         
+        {% block header %}
+            <header>
+                <a href="{% url 'index' %}" class="button_menu_style" id="logo">BagStore</a>
+                <nav class="nav_menu">
+                    <a href="{% url 'shop' %}" class="button_menu_style button_menu_hover">Магазин</a>
+                    <a href="#" class="button_menu_style button_menu_hover">Корзина</a>
+                </nav>  
+            </header>
+        {% endblock header %}
+        {% block main %}{% endblock main %}
+        {% block footer %}{% endblock footer %}
     </div>  
 </body>
 </html>
