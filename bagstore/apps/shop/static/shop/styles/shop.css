@@ -1,0 +1,90 @@
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1280px;
+}
+
+.product_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E3E3E3;
+    width: 250px;
+    padding: 10px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.product_card__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 7px;
+}
+
+.product_card__img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.product_card__middle_wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.product_card__price {
+    color: rgb(0, 0, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+}
+
+.product_card__name {
+    color: rgb(0, 0, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.product_card__bottom_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.product_card__evaluation {
+    align-self: flex-start;
+    color: rgb(0, 0, 0);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+}
+
+.product_card__add_btn {
+    display: inline-block;
+    background-color: #C1C1C1;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-top: 10px;
+    padding: 3.5% 25%;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.product_card__add_btn:hover {
+    background-color: #909090;
+
+}
