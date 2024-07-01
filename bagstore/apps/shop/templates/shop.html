@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bag Store</title>
+    <link href="{% static '/shop/styles/shop.css' %}" rel="stylesheet">
+    <link href="{% static '/shop/styles/header.css' %}" rel="stylesheet"> 
+</head>
+<body>  
+    <div class="center">
+        <header>
+            <a href="{% url 'index' %}" class="button_menu_style" id="logo">BagStore</a>
+            <nav class="nav_menu">
+                <a href="{% url 'shop' %}" class="button_menu_style button_menu_hover">Магазин</a>
+                <a href="#" class="button_menu_style button_menu_hover">Корзина</a>
+            </nav>  
+        </header>
+
+        <main class="cards_products">
+            <div class="style_card">
+                <div class="blok_up">
+                    <img src="{% static '/shop/images/bag_example.png' %}" class="style_img">
+                </div>
+
+                <div class="under_block">
+
+                    <div class="price">
+                        <span>2550 руб.</span>
+                    </div>
+
+                    <div class="inf_text">
+                        <span>Сумка фиолетовая </span>
+                    </div>
+
+                    <div class="evaluation">
+                        <img src="{% static '/shop/icons/star.png'%}" class="feedback_img">
+                        <span class="evaluation_data"> 4.7 </span>
+                    </div>
+
+                    <div class="button_script_first">
+                        <button type="button" class="button_buy_first">
+                            <span> Добавить </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="style_card">
+                <div class="blok_up">
+                    <img src="{% static '/shop/images/bag_example.png' %}" class="style_img">
+                </div>
+                <div class="under_block">
+
+                    <div class="price">
+                        <span>2550 руб.</span>
+                    </div>
+
+                    <div class="inf_text">
+                        <span>Сумка фиолетовая </span>
+                    </div>
+
+                    <div class="evaluation">
+                        <img src="{% static '/shop/icons/star.png'%}" class="feedback_img">
+                        <span class="evaluation_data"> 4.7 </span>
+                    </div>
+
+                    <div class="button_script_second">
+                        <button type="button" class="button_buy_second">
+                            <span> - </span>
+                        </button>
+                        <span class="count_position">100</span>
+                        <button type="button" class="button_buy_second">
+                            <span> + </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="style_card">
+                <div class="blok_up">
+                    <img src="{% static '/shop/images/bag_example.png' %}" class="style_img">
+                </div>
+                <div class="under_block">
+
+                    <div class="price">
+                        <span>2550 руб.</span>
+                    </div>
+
+                    <div class="inf_text">
+                        <span>Сумка фиолетовая </span>
+                    </div>
+
+                    <div class="evaluation">
+                        <img src="{% static '/shop/icons/star.png'%}" class="feedback_img">
+                        <span class="evaluation_data"> 4.7 </span>
+                    </div>
+
+                    <div class="button_script_second">
+                        <button type="button" class="button_buy_third">
+                            <img src="{% static '/shop/icons/trash.png'%}" class="trash_img">
+                        </button>
+                        <span class="count_position">101</span>
+                        <button type="button" class="button_buy_third">
+                            <span> + </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="style_card">
+                <div class="blok_up">
+                    <img src="{% static '/shop/images/bag_example.png' %}" class="style_img">
+                </div>
+
+                <div class="under_block">
+
+                    <div class="price">
+                        <span>2550 руб.</span>
+                    </div>
+
+                    <div class="inf_text">
+                        <span>Сумка фиолетовая </span>
+                    </div>
+
+                    <div class="evaluation">
+                        <img src="{% static '/shop/icons/star.png'%}" class="feedback_img">
+                        <span class="evaluation_data"> 4.7 </span>
+                    </div>
+
+                    <div class="button_script_first">
+                        <button type="button" class="button_buy_first">
+                            <span> Добавить </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="style_card">
+                <div class="blok_up">
+                    <img src="{% static '/shop/images/bag_example.png' %}" class="style_img">
+                </div>
+                <div class="under_block">
+
+                    <div class="price">
+                        <span>2550 руб.</span>
+                    </div>
+
+                    <div class="inf_text">
+                        <span>Сумка фиолетовая </span>
+                    </div>
+
+                    <div class="evaluation">
+                        <img src="{% static '/shop/icons/star.png'%}" class="feedback_img">
+                        <span class="evaluation_data"> 4.7 </span>
+                    </div>
+
+                    <div class="button_script_second">
+                        <button type="button" class="button_buy_second">
+                            <span> - </span>
+                        </button>
+                        <span class="count_position">100</span>
+                        <button type="button" class="button_buy_second">
+                            <span> + </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="style_card">
+                <div class="blok_up">
+                    <img src="{% static '/shop/images/bag_example.png' %}" class="style_img">
+                </div>
+                <div class="under_block">
+
+                    <div class="price">
+                        <span>2550 руб.</span>
+                    </div>
+
+                    <div class="inf_text">
+                        <span>Сумка фиолетовая </span>
+                    </div>
+
+                    <div class="evaluation">
+                        <img src="{% static '/shop/icons/star.png'%}" class="feedback_img">
+                        <span class="evaluation_data"> 4.7 </span>
+                    </div>
+
+                    <div class="button_script_second">
+                        <button type="button" class="button_buy_third">
+                            <img src="{% static '/shop/icons/trash.png'%}" class="trash_img">
+                        </button>
+                        <span class="count_position">101</span>
+                        <button type="button" class="button_buy_third">
+                            <span> + </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>  
+</body>
+</html>
