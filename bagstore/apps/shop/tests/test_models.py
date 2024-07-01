@@ -1,12 +1,12 @@
 import os
 import time
 
-from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase
 
-from apps.shop.models import Product, Cart
+from apps.shop.models import Product, Cart, Evaluation
 
 
 User = get_user_model()
@@ -136,11 +136,6 @@ class CartModelTest(TestCase):
         self.assertIn(cart, product.cart_set.all())
     def test_cart_cannot_be_without_the_user_and_the_product(self):
         '''Тест: корзина не может быть без пользователя и продукта'''
-        product = Product.objects.create(
-            name='Сумка первая',
-            price=1590,
-            image=self.image
-        )
         cart = Cart()
 
         with self.assertRaises(ValidationError):
@@ -237,3 +232,84 @@ class EvaluationModelTest(TestCase):
         for product in Product.objects.all():
             if product is not None:
                 os.remove(product.image.path)
+
+    def test_cant_rate_anonymously(self):
+        '''Тест: нельзя поставить оценку анонимно'''
+        product = Product.objects.create(
+            name='Сумка первая',
+            price=1590,
+            image=self.image
+        )
+        evaluation = Evaluation(
+            evaluation=2,
+            product=product
+        )
+        with self.assertRaises(ValidationError):
+            evaluation.full_clean()
+            evaluation.save()
+
+    def test_cant_rate_without_the_product(self):
+        '''Тест: нельзя поставить оценку без продукта'''
+        evaluation = Evaluation(
+            evaluation=2,
+            user=self.user
+        )
+        with self.assertRaises(ValidationError):
+            evaluation.full_clean()
+            evaluation.save()
+
+    def test_cant_rate_the_same_product_twice(self):
+        '''Тест: нельзя поставить оценку на один товар дважды'''
+        product = Product.objects.create(
+            name='Сумка первая',
+            price=1590,
+            image=self.image
+        )
+        Evaluation.objects.create(
+            evaluation=2,
+            product=product,
+            user=self.user
+        )
+        
+        evaluation = Evaluation(
+            evaluation=5,
+            product=product,
+            user=self.user
+        )
+        with self.assertRaises(ValidationError):
+            evaluation.full_clean()
+            evaluation.save()
+            
+
+    def test_cant_put_a_evaluation_higher_than_five(self):
+        '''Тест: нельзя поставить оценку выше пяти'''
+        product = Product.objects.create(
+            name='Сумка первая',
+            price=1590,
+            image=self.image
+        )
+        evaluation = Evaluation(
+            evaluation=6,
+            product=product,
+            user=self.user
+        )
+        with self.assertRaises(ValidationError):
+            evaluation.full_clean()
+            evaluation.save()
+
+    def test_cant_put_a_evaluation_less_than_one(self):
+        '''Тест: нельзя поставить оценку ниже одного'''
+        product = Product.objects.create(
+            name='Сумка первая',
+            price=1590,
+            image=self.image
+        )
+        evaluation = Evaluation(
+            evaluation=0,
+            product=product,
+            user=self.user
+        )
+        with self.assertRaises(ValidationError):
+            evaluation.full_clean()
+            evaluation.save()
+            

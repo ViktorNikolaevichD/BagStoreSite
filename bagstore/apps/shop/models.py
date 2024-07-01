@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -20,4 +21,17 @@ class Cart(models.Model):
     '''Корзина покупок'''
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Товар в корзине')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь корзины')
+
+
+class Evaluation(models.Model):
+    '''Оценка товара'''
+    evaluation = models.IntegerField(verbose_name='Оценка товара',
+                                     validators=[MinValueValidator(1), MaxValueValidator(5)])
+    user = models.ForeignKey(User, on_delete=models.CASCADE, 
+                             verbose_name='Пользователь, поставивший оценку')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, 
+                                verbose_name='Оцениваемый товар')
     
+    class Meta:
+        unique_together = ('user', 'product')
+        
