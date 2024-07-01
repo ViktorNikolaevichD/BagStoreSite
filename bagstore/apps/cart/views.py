@@ -1,6 +1,9 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 
-class CartPageView(TemplateView):
+from apps.cart.models import Cart
+
+class CartPageView(ListView):
     '''Отображение корзины'''
+    model = Cart
     template_name = 'cart.html'
     
