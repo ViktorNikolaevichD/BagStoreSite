@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 
+from apps.cart import urls as cart_urls
 from apps.shop import urls as shop_urls
 from apps.shop import views as shop_views
 
 urlpatterns = [
     re_path(r'^$', shop_views.MainPageView.as_view(), name='index'),
     re_path(r'^shop/', include(shop_urls)),
+    re_path(r'^cart/', include(cart_urls)),
     path('admin/', admin.site.urls),
 ]

@@ -17,11 +17,6 @@ class Product(models.Model):
         '''Строковое представление'''
         return "%s" % str(self.name)
 
-class Cart(models.Model):
-    '''Корзина покупок'''
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Товар в корзине')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь корзины')
-
 
 class Evaluation(models.Model):
     '''Оценка товара'''
